@@ -1,25 +1,28 @@
 <!doctype html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale:0.25, maximum-scale:1.6, user-scalable=yes;" />
-    	<meta name="author" content="Gordon Mei and Jackie Keh" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.25, maximum-scale=1.6, user-scalable=1.0;" />
+        <meta name="author" content="Gordon Mei and Jackie Keh" />
         <title>Earl, Interrupted. - Studio Gordon Mei - Lab</title>
         <style type="text/css">
-            * {margin: 0; padding: 0; font: normal 14pt "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue","Helvetica","Arial",sans-serif; font-weight: 300;}
+            * {
+                margin: 0;
+                padding: 0;
+                font: normal 14pt "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+                font-weight: 300;
+            }
             body {
                 margin: 2px 0 0 2px;
             }
-	        a:link, a:visited, a:focus, a:active {color: #009aff;}
-	        a:hover {color: #ff5c80; text-decoration: line-through;}
-	        section, footer {display: block;}
-	        fieldset {border: 0;}
-	        label {cursor: pointer;}
-	        #sosumi {margin: 1em 0;}
-	        #sosumi a:hover {text-decoration: none; color: #abc;}
-	        #sosumi, #sosumi a, #sosumi p, #sosumi p a {font-size: 10pt;}
-	        #sosumi p, #sosumi p a {color: #999; font-style: italic;}
-            @media only screen and (max-device-width:480px) {body {margin:1em 0.3em;}}
+            @media only screen and (max-device-width: 480px),
+                   only screen and (-webkit-min-device-pixel-ratio: 2) {
+                body {margin: 1em 0.3em 1em 0.3em;}
+            }
+
+            @media only screen and (max-device-width: 1024px) {
+                body {margin: 1em 0.3em;}
+            }
 
             input[type="text"] {
                 width: 250px;
@@ -32,12 +35,16 @@
                 left: 0;
                 -webkit-animation-name: bounce;
                 -moz-animation-name: bounce;
+                animation-name: bounce;
                 -webkit-animation-duration: 4s;
                 -moz-animation-duration: 4s;
+                animation-duration: 4s;
                 -webkit-animation-iteration-count: infinite;
                 -moz-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
                 -webkit-animation-direction: alternate;
                 -moz-animation-direction: alternate;
+                animation-direction: alternate;
             }
 
             @-webkit-keyframes bounce {
@@ -63,12 +70,16 @@
             #nose {
                 -webkit-animation-name: twitch;
                 -moz-animation-name: twitch;
+                animation-name: twitch;
                 -webkit-animation-duration: 4s;
                 -moz-animation-duration: 4s;
+                animation-duration: 4s;
                 -webkit-animation-iteration-count: infinite;
                 -moz-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
                 -webkit-animation-direction: alternate;
                 -moz-animation-direction: alternate;
+                animation-direction: alternate;
             }
 
             @-webkit-keyframes twitch {
@@ -111,18 +122,56 @@
                 }
             }
 
+            /* twitchier version: tweaks for current iOS devices */
+            @media only screen and (max-device-width: 480px),
+                   only screen and (-webkit-min-device-pixel-ratio: 2),
+                   only screen and (max-device-width: 1024px) {
+                #nose {
+                    -webkit-animation-name: twitchier;
+                    -moz-animation-name: twitchier;
+                    animation-name: twitchier;
+                }
+
+                @-webkit-keyframes twitchier {
+                    0% {
+                        left: 0;
+                        margin-top: 0;
+                    }
+                    25% {
+                        left: 3px;
+                        margin-top: 5px;
+                    }
+                    50% {
+                        left: 0;
+                        margin-top: 10px;
+                    }
+                    75% {
+                        left: -3px;
+                        margin-top: 15px;
+                    }
+                    100% {
+                        left: 0;
+                        margin-top: 20px;
+                    }
+                }
+            }
+
 
             /* shifty eyes */
             #lefteyeinner,
             #righteyeinner {
                 -webkit-animation-name: shift;
                 -moz-animation-name: shift;
+                animation-name: shift;
                 -webkit-animation-duration: 4s;
                 -moz-animation-duration: 4s;
+                animation-duration: 4s;
                 -webkit-animation-iteration-count: infinite;
                 -moz-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
                 -webkit-animation-direction: alternate;
                 -moz-animation-direction: alternate;
+                animation-direction: alternate;
             }
 
             @-webkit-keyframes shift {
@@ -165,18 +214,57 @@
                 }
             }
 
+            /* shifty eyes again: on current iOS devices, shift eyes slightly differently. */
+            @media only screen and (max-device-width: 480px),
+                   only screen and (-webkit-min-device-pixel-ratio: 2),
+                   only screen and (max-device-width: 1024px) {
+                #lefteyeinner,
+                #righteyeinner {
+                    -webkit-animation-name: downshift;
+                    -moz-animation-name: downshift;
+                    animation-name: downshift;
+                }
+
+                @-webkit-keyframes downshift {
+                    0% {
+                        left: 0;
+                        margin-top: 0;
+                    }
+                    25% {
+                        left: 3px;
+                        margin-top: 5px;
+                    }
+                    50% {
+                        left: 0;
+                        margin-top: 10px;
+                    }
+                    75% {
+                        left: -3px;
+                        margin-top: 15px;
+                    }
+                    100% {
+                        left: 0;
+                        margin-top: 20px;
+                    }
+                }
+            }
+
 
             /* breathing */
             #body,
             #chest {
                 -webkit-animation-name: bop;
                 -moz-animation-name: bop;
+                animation-name: bop;
                 -webkit-animation-duration: 4s;
                 -moz-animation-duration: 4s;
+                animation-duration: 4s;
                 -webkit-animation-iteration-count: infinite;
                 -moz-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
                 -webkit-animation-direction: alternate;
                 -moz-animation-direction: alternate;
+                animation-direction: alternate;
             }
 
             @-webkit-keyframes bop {
@@ -216,187 +304,344 @@
             }
 
 
-        /* Speech Bubble Magic */
-        .speechbubble {
-            position: absolute;
-            top: 0;
-            left: 2px;
-            margin-top: 55px;
-            padding: 15px;
-            min-width: 330px;
-            background-color: #525252;
-            /* filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#000000'); */
-            background-image: -moz-linear-gradient(center top, #525252 0pt, #323232 50%, #2e2e2e 50%, #111111 100%);
-            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #525252), color-stop(0.5, #323232), color-stop(0.5, #2e2e2e), color-stop(1.0, #111111)); /* Safari 4+, Chrome 1+ */
-            background-image: -webkit-linear-gradient(center top, #525252 0pt, #323232 50%, #2e2e2e 50%, #111111 100%); /* Safari 5.1+, Chrome 10+ */
-            background-image: -o-linear-gradient(#525252 0pt, #323232 50%, #2e2e2e 50%, #111111 100%);
-            background-image: linear-gradient(center top, #525252 0pt, #323232 50%, #2e2e2e 50%, #111111 100%);
-            border-color: #222 #111 #000 #111;
-            border-style: solid;
-            border-width: 1px;
-            -moz-border-radius: 5px;
-            -webkit-border-radius: 5px;
-            border-radius: 5px;
-            /* below: inset - outer bottom, top, inner bottom, left, right */
-            -moz-box-shadow: 0 1px 0 #292929, 0 1px 0 #8e8e8e inset, 0 -1px 0 #333 inset, 1px 0 0 #515151 inset, -1px 0 0 #575757 inset;
-            -webkit-box-shadow: 0 1px 0 #292929, 0 1px 0 #8e8e8e inset, 0 -1px 0 #333 inset, 1px 0 0 #515151 inset, -1px 0 0 #575757 inset;
-            box-shadow: 0 1px 0 #292929, 0 1px 0 #8e8e8e inset, 0 -1px 0 #333 inset, 1px 0 0 #515151 inset, -1px 0 0 #575757 inset;
-            text-shadow: 0 -1px 0 #000;
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-        }
+            /* arm flailing */
+            #leftarm.panic {
+                -webkit-animation-name: flap;
+                -moz-animation-name: flap;
+                animation-name: flap;
+                -webkit-animation-duration: 0.1s;
+                -moz-animation-duration: 0.1s;
+                animation-duration: 0.1s;
+                -webkit-animation-iteration-count: infinite;
+                -moz-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+                -webkit-animation-direction: alternate;
+                -moz-animation-direction: alternate;
+                animation-direction: alternate;
+            }
 
-        .speechbubble:after {
-            content: "";
-            position: absolute;
-            bottom: -30px;
-            left: 50px;
-            border: 15px solid transparent;
-            border-top-color: #000;
-            display: block;
-            width: 0;
-        }
+            @-webkit-keyframes flap {
+                0% {
+                    -webkit-transform: rotate(10deg);
+                }
+                25% {
+                    -webkit-transform: rotate(5deg);
+                }
+                50% {
+                    -webkit-transform: rotate(0deg);
+                }
+                75% {
+                    -webkit-transform: rotate(-5deg);
+                }
+                100% {
+                    -webkit-transform: rotate(-8deg);
+                }
+            }
 
-        /* Faux border around the other bubble tip */
-        .speechbubble:before {
-            content: "";
-            position: absolute;
-            bottom: -29px;
-            left: 50px;
-            display: block;
-            width: 0;
-            border: 15px solid transparent;
-            border-top-color: #131313;
-        }
+            @-moz-keyframes flap {
+                0% {
+                    -moz-transform: rotate(45deg);
+                }
+                25% {
+                    -moz-transform: rotate(35deg);
+                }
+                50% {
+                    -moz-transform: rotate(0deg);
+                }
+                75% {
+                    -moz-transform: rotate(-35deg);
+                }
+                100% {
+                    -moz-transform: rotate(-45deg);
+                }
+            }
+
+            #rightarm.panic {
+                -webkit-animation-name: flail;
+                -moz-animation-name: flail;
+                animation-name: flail;
+                -webkit-animation-duration: 0.1s;
+                -moz-animation-duration: 0.1s;
+                animation-duration: 0.1s;
+                -webkit-animation-iteration-count: infinite;
+                -moz-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+                -webkit-animation-direction: alternate;
+                -moz-animation-direction: alternate;
+                animation-direction: alternate;
+            }
+
+            @-webkit-keyframes flail {
+                0% {
+                    -webkit-transform: rotate(-45deg);
+                }
+                25% {
+                    -webkit-transform: rotate(-35deg);
+                }
+                50% {
+                    -webkit-transform: rotate(0deg);
+                }
+                75% {
+                    -webkit-transform: rotate(35deg);
+                }
+                100% {
+                    -webkit-transform: rotate(45deg);
+                }
+            }
+
+            @-moz-keyframes flail {
+                0% {
+                    -moz-transform: rotate(-45deg);
+                }
+                25% {
+                    -moz-transform: rotate(-35deg);
+                }
+                50% {
+                    -moz-transform: rotate(0deg);
+                }
+                75% {
+                    -moz-transform: rotate(35deg);
+                }
+                100% {
+                    -moz-transform: rotate(45deg);
+                }
+            }
 
 
-        /* Buttoned Up */
-        button {
-            display: inline-block;
-            padding: 8px 30px;
-            border-style: solid;
-            border-width: 1px;
-            -moz-border-radius: 5px;
-            -webkit-border-radius: 5px;
-            border-radius: 5px;
-            color: #ddd;
-            cursor: pointer;
-            font-weight: bold;
-            text-shadow: 0 -1px 0 #000;
-            -moz-transition: color 0.5s linear 0s;
-            -webkit-transition: color 0.5s linear 0s;
-            background-color: #058;
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#1188cc', EndColorStr='#005588');
-            background-image: -moz-linear-gradient(center top, #18c 0pt, #116eaa 50%, #106099 50%, #058 100%);
-            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #18c), color-stop(0.5, #116eaa), color-stop(0.5, #106099), color-stop(1.0, #058)); /* Safari 4+, Chrome 1+ */
-            background-image: -webkit-linear-gradient(center top, #18c 0pt, #116eaa 50%, #106099 50%, #058 100%); /* Safari 5.1+, Chrome 10+ */
-            background-image: -o-linear-gradient(#18c 0pt, #116eaa 50%, #106099 50%, #058 100%);
-            background-image: linear-gradient(center top, #18c 0pt, #116eaa 50%, #106099 50%, #058 100%);
-            border-color: #058 #047 #034 #047;
-            /* below: inset - outer bottom, top, inner bottom, left, right */
-            -moz-box-shadow: 0 1px 0 #bfbfbf, 0 1px 0 #3ae inset, 0 -1px 0 #1072bb inset, 1px 0 0 #1270bb inset, -1px 0 0 #1270bb inset;
-            -webkit-box-shadow: 0 1px 0 #bfbfbf, 0 1px 0 #3ae inset, 0 -1px 0 #1072bb inset, 1px 0 0 #1270bb inset, -1px 0 0 #1270bb inset;
-            box-shadow: 0 1px 0 #bfbfbf, 0 1px 0 #3ae inset, 0 -1px 0 #1072bb inset, 1px 0 0 #1270bb inset, -1px 0 0 #1270bb inset;
-            text-shadow: 0 -1px 0 #058;
-        }
+            /* gasp */
+            #shockmouth {
+                display: none;
+            }
 
-        .hiddendragon {
-            display: none;
-        }
+            #shockmouth.panic {
+                display: block;
+            }
+
+
+            /* Speech Bubble Magic */
+            .speechbubble {
+                position: absolute;
+                top: 0;
+                left: 2px;
+                z-index: 2;
+                margin-top: 55px;
+                padding: 15px;
+                min-width: 330px;
+                background-color: #525252;
+                /* filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#000000'); */
+                background-image: -moz-linear-gradient(center top, #525252 0pt, #323232 50%, #2e2e2e 50%, #111111 100%);
+                background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #525252), color-stop(0.5, #323232), color-stop(0.5, #2e2e2e), color-stop(1.0, #111111)); /* Safari 4+, Chrome 1+ */
+                background-image: -webkit-linear-gradient(center top, #525252 0pt, #323232 50%, #2e2e2e 50%, #111111 100%); /* Safari 5.1+, Chrome 10+ */
+                background-image: -o-linear-gradient(#525252 0pt, #323232 50%, #2e2e2e 50%, #111111 100%);
+                background-image: linear-gradient(center top, #525252 0pt, #323232 50%, #2e2e2e 50%, #111111 100%);
+                border-color: #222 #111 #000 #111;
+                border-style: solid;
+                border-width: 1px;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                /* below: inset - outer bottom, top, inner bottom, left, right */
+                -moz-box-shadow: 0 1px 0 #292929, 0 1px 0 #8e8e8e inset, 0 -1px 0 #333 inset, 1px 0 0 #515151 inset, -1px 0 0 #575757 inset;
+                -webkit-box-shadow: 0 1px 0 #292929, 0 1px 0 #8e8e8e inset, 0 -1px 0 #333 inset, 1px 0 0 #515151 inset, -1px 0 0 #575757 inset;
+                box-shadow: 0 1px 0 #292929, 0 1px 0 #8e8e8e inset, 0 -1px 0 #333 inset, 1px 0 0 #515151 inset, -1px 0 0 #575757 inset;
+                text-shadow: 0 -1px 0 #000;
+                color: #fff;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            @media only screen and (max-device-width: 480px),
+                   only screen and (-webkit-min-device-pixel-ratio: 2),
+                   only screen and (max-device-width: 1024px) {
+                input[type="text"] {
+                    width: 200px;
+                }
+                .speechbubble {
+                    top: 10px;
+                    min-width: 280px;
+                }
+            }
+
+            @media all and (orientation: landscape) {
+            }
+
+            .speechbubble:after {
+                content: "";
+                position: absolute;
+                bottom: -30px;
+                left: 100px;
+                border: 15px solid transparent;
+                border-top-color: #000;
+                display: block;
+                width: 0;
+            }
+
+            /* Faux border around the other bubble tip */
+            .speechbubble:before {
+                content: "";
+                position: absolute;
+                bottom: -29px;
+                left: 100px;
+                display: block;
+                width: 0;
+                border: 15px solid transparent;
+                border-top-color: #131313;
+            }
+
+
+            /* Buttoned Up */
+            button {
+                display: inline-block;
+                padding: 8px 30px;
+                border-style: solid;
+                border-width: 1px;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                color: #fff;
+                cursor: pointer;
+                font-weight: bold;
+                text-shadow: 0 -1px 0 #000;
+                -moz-transition: color 0.5s linear 0s;
+                -webkit-transition: color 0.5s linear 0s;
+                background-color: #058;
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#1188cc', EndColorStr='#005588');
+                background-image: -moz-linear-gradient(center top, #18c 0pt, #116eaa 50%, #106099 50%, #058 100%);
+                background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #18c), color-stop(0.5, #116eaa), color-stop(0.5, #106099), color-stop(1.0, #058)); /* Safari 4+, Chrome 1+ */
+                background-image: -webkit-linear-gradient(center top, #18c 0pt, #116eaa 50%, #106099 50%, #058 100%); /* Safari 5.1+, Chrome 10+ */
+                background-image: -o-linear-gradient(#18c 0pt, #116eaa 50%, #106099 50%, #058 100%);
+                background-image: linear-gradient(center top, #18c 0pt, #116eaa 50%, #106099 50%, #058 100%);
+                border-color: #058 #047 #034 #047;
+                /* below: inset - outer bottom, top, inner bottom, left, right */
+                -moz-box-shadow: 0 1px 0 #bfbfbf, 0 1px 0 #3ae inset, 0 -1px 0 #1072bb inset, 1px 0 0 #1270bb inset, -1px 0 0 #1270bb inset;
+                -webkit-box-shadow: 0 1px 0 #bfbfbf, 0 1px 0 #3ae inset, 0 -1px 0 #1072bb inset, 1px 0 0 #1270bb inset, -1px 0 0 #1270bb inset;
+                box-shadow: 0 1px 0 #bfbfbf, 0 1px 0 #3ae inset, 0 -1px 0 #1072bb inset, 1px 0 0 #1270bb inset, -1px 0 0 #1270bb inset;
+                text-shadow: 0 -1px 0 #058;
+            }
+
+
+            /* Laissez-faire, Adam Smith, Keynesian economics, mumble mumble */
+            #invisiblehand {
+                display: none;
+                position: absolute;
+                top: 100px;
+                left: 120px;
+                font-family: 'ITC Zapf Dingbats', fantasy;
+                font-size: 80px;
+                color: #fff;
+                text-shadow: 0 0 5px #000;
+                -webkit-transform: rotate(90deg);
+                -moz-transform: rotate(90deg);
+                transform: rotate(90deg);
+                cursor: pointer;
+            }
+
+            #invisiblehand.panic {
+                display: block;
+            }
         </style>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <!--
+        <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png" />
+        <link rel="apple-touch-startup-image" href="earlsplashmobile.png" />
+        -->
 
     </head>
     <body onorientationchange="updateOrientation();">
+        <header>
+            <input type="text" placeholder="(e.g. Will I find true love?)" />
+            <button id="ask">Ask!</button>
+            <blockquote id="response" class="speechbubble">Ask me anything!</blockquote>
+        </header>
 
-		<section>
+        <section id="containyourself">
+            <canvas width="550" height="650" id="leftear"></canvas>
+            <canvas width="550" height="650" id="rightear"></canvas>
+            <canvas width="550" height="650" id="leftearinner"></canvas>
+            <canvas width="550" height="650" id="rightearinner"></canvas>
+            <canvas width="550" height="650" id="headheadhead"></canvas>
+            <canvas width="550" height="650" id="lefteye"></canvas>
+            <canvas width="550" height="650" id="righteye"></canvas>
+            <canvas width="550" height="650" id="lefteyeinner"></canvas>
+            <canvas width="550" height="650" id="righteyeinner"></canvas>
+            <canvas width="550" height="650" id="nose"></canvas>
+            <canvas width="550" height="650" id="body"></canvas>
+            <canvas width="550" height="650" id="collar"></canvas>
+            <canvas width="550" height="650" id="chest"></canvas>
+            <canvas width="550" height="650" id="leftarm"></canvas>
+            <canvas width="550" height="650" id="rightarm"></canvas>
+            <canvas width="550" height="650" id="shockmouth"></canvas>
+        </section>
 
-	        <input type="text" placeholder="(e.g. Will I find true love?)" />
-	        <button id="ask">Ask!</button>
-	        <blockquote id="response" class="speechbubble">Ask me anything!</blockquote>
-
-	        <canvas width="550" height="650" id="leftear"></canvas>
-	        <canvas width="550" height="650" id="rightear"></canvas>
-	        <canvas width="550" height="650" id="leftearinner"></canvas>
-	        <canvas width="550" height="650" id="rightearinner"></canvas>
-	        <canvas width="550" height="650" id="headheadhead"></canvas>
-	        <canvas width="550" height="650" id="lefteye"></canvas>
-	        <canvas width="550" height="650" id="righteye"></canvas>
-	        <canvas width="550" height="650" id="lefteyeinner"></canvas>
-	        <canvas width="550" height="650" id="righteyeinner"></canvas>
-	        <canvas width="550" height="650" id="nose"></canvas>
-	        <canvas width="550" height="650" id="body"></canvas>
-	        <canvas width="550" height="650" id="collar"></canvas>
-	        <canvas width="550" height="650" id="chest"></canvas>
-	        <canvas width="550" height="650" id="leftarm"></canvas>
-	        <canvas width="550" height="650" id="rightarm"></canvas>
-	        <canvas width="550" height="650" id="shockmouth" class="hiddendragon"></canvas>
-
-		</section>
+        <span id="invisiblehand">
+            ☛
+        </span>
 
         <script type="text/javascript">
 
             /* Left Ear Outer */
-            var leftear = document.getElementById("leftear");
-            var leftearcanvas = leftear.getContext("2d");
+            var leftear = document.getElementById('leftear');
+            var leftearcanvas = leftear.getContext('2d');
 
             leftearcanvas.beginPath();
             leftearcanvas.moveTo(25,25);
             leftearcanvas.lineTo(115,55);
             leftearcanvas.lineTo(35,125);
-            leftearcanvas.fillStyle = "#f78b3a";
+            leftearcanvas.fillStyle = '#f78b3a';
             leftearcanvas.fill();
 
 
             /* Right Ear Outer */
-            var rightear = document.getElementById("rightear");
-            var rightearcanvas = leftear.getContext("2d");
+            var rightear = document.getElementById('rightear');
+            var rightearcanvas = leftear.getContext('2d');
 
             rightearcanvas.beginPath();
             rightearcanvas.moveTo(225,55);
             rightearcanvas.lineTo(315,25);
             rightearcanvas.lineTo(295,125);
-            rightearcanvas.fillStyle = "#f78b3a";
+            rightearcanvas.fillStyle = '#f78b3a';
             rightearcanvas.fill();
 
 
             /* Left Ear Inner */
-            var leftearinner = document.getElementById("leftearinner");
-            var leftearinnercanvas = leftearinner.getContext("2d");
+            var leftearinner = document.getElementById('leftearinner');
+            var leftearinnercanvas = leftearinner.getContext('2d');
 
             leftearinnercanvas.beginPath();
             leftearinnercanvas.moveTo(40,40);
             leftearinnercanvas.lineTo(105,65);
             leftearinnercanvas.lineTo(45,95);
-            leftearinnercanvas.fillStyle = "#fff";
+            leftearinnercanvas.fillStyle = '#fff';
             leftearinnercanvas.fill();
 
 
             /* Right Ear Inner */
-            var rightearinner = document.getElementById("rightearinner");
-            var rightearinnercanvas = rightearinner.getContext("2d");
+            var rightearinner = document.getElementById('rightearinner');
+            var rightearinnercanvas = rightearinner.getContext('2d');
 
             rightearinnercanvas.beginPath();
             rightearinnercanvas.moveTo(230,65);
             rightearinnercanvas.lineTo(300,40);
             rightearinnercanvas.lineTo(285,105);
-            rightearinnercanvas.fillStyle = "#fff";
+            rightearinnercanvas.fillStyle = '#fff';
             rightearinnercanvas.fill();
 
 
             /* Shock Mouth */
-            var shockmouth = document.getElementById("shockmouth");
-            var shockmouthcanvas = shockmouth.getContext("2d");
+            var shockmouth = document.getElementById('shockmouth');
+            var shockmouthcanvas = shockmouth.getContext('2d');
             shockmouthcanvas.beginPath();
             shockmouthcanvas.arc(170,200,10,0,Math.PI*2,true);
             shockmouthcanvas.lineWidth = 4;
-            shockmouthcanvas.strokeStyle = "#111";
+            shockmouthcanvas.strokeStyle = '#111';
             shockmouthcanvas.stroke();
            
 
             /* Head */
-            var head = document.getElementById("headheadhead");
-            var headcanvas = head.getContext("2d");
+            var head = document.getElementById('headheadhead');
+            var headcanvas = head.getContext('2d');
 
             var centerX = -70;
             var centerY = -180;
@@ -408,16 +653,16 @@
             headcanvas.beginPath();
             headcanvas.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
 
-            headcanvas.fillStyle = "#f78b3a";
+            headcanvas.fillStyle = '#f78b3a';
             headcanvas.fill();
 
 
             /* Left Eye */
-            var lefteye = document.getElementById("lefteye");
-            var lefteyecanvas = lefteye.getContext("2d");
+            var lefteye = document.getElementById('lefteye');
+            var lefteyecanvas = lefteye.getContext('2d');
 
-            lefteyecanvas.strokeStyle = "#000";
-            lefteyecanvas.fillStyle = "#fff";
+            lefteyecanvas.strokeStyle = '#000';
+            lefteyecanvas.fillStyle = '#fff';
             lefteyecanvas.beginPath();
             lefteyecanvas.arc(130,130,20,0,Math.PI*2,true);
             lefteyecanvas.closePath();
@@ -426,10 +671,10 @@
 
 
             /* Left Eye Inner */
-            var lefteyeinner = document.getElementById("lefteyeinner");
-            var lefteyeinnercanvas = lefteyeinner.getContext("2d");
+            var lefteyeinner = document.getElementById('lefteyeinner');
+            var lefteyeinnercanvas = lefteyeinner.getContext('2d');
 
-            lefteyeinnercanvas.fillStyle = "#000";
+            lefteyeinnercanvas.fillStyle = '#000';
             lefteyeinnercanvas.beginPath();
             lefteyeinnercanvas.arc(130,130,12,0,Math.PI*2,true);
             lefteyeinnercanvas.closePath();
@@ -437,11 +682,11 @@
 
 
             /* Right Eye */
-            var righteye = document.getElementById("righteye");
-            var righteyecanvas = righteye.getContext("2d");
+            var righteye = document.getElementById('righteye');
+            var righteyecanvas = righteye.getContext('2d');
 
-            righteyecanvas.strokeStyle = "#000";
-            righteyecanvas.fillStyle = "#fff";
+            righteyecanvas.strokeStyle = '#000';
+            righteyecanvas.fillStyle = '#fff';
             righteyecanvas.beginPath();
             righteyecanvas.arc(210,130,20,0,Math.PI*2,true);
             righteyecanvas.closePath();
@@ -450,10 +695,10 @@
 
 
             /* Right Eye Inner */
-            var righteyeinner = document.getElementById("righteyeinner");
-            var righteyeinnercanvas = righteyeinner.getContext("2d");
+            var righteyeinner = document.getElementById('righteyeinner');
+            var righteyeinnercanvas = righteyeinner.getContext('2d');
 
-            righteyeinnercanvas.fillStyle = "#000";
+            righteyeinnercanvas.fillStyle = '#000';
             righteyeinnercanvas.beginPath();
             righteyeinnercanvas.arc(210,130,12,0,Math.PI*2,true);
             righteyeinnercanvas.closePath();
@@ -461,12 +706,12 @@
 
 
             /* Nose */
-            var nose = document.getElementById("nose");
-            var nosecanvas = nose.getContext("2d");
+            var nose = document.getElementById('nose');
+            var nosecanvas = nose.getContext('2d');
 
             nosecanvas.scale(1.5, 1);
 
-            nosecanvas.fillStyle = "#603719";
+            nosecanvas.fillStyle = '#603719';
             nosecanvas.beginPath();
             nosecanvas.arc(113,160,12,0,Math.PI*2,true);
             nosecanvas.closePath();
@@ -486,8 +731,8 @@
 
 
             /* Body */
-            var body = document.getElementById("body");
-            var bodycanvas = body.getContext("2d");
+            var body = document.getElementById('body');
+            var bodycanvas = body.getContext('2d');
 
             var centerX = -105;
             var centerY = 65;
@@ -499,14 +744,14 @@
             bodycanvas.beginPath();
             bodycanvas.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
 
-            bodycanvas.fillStyle = "#f78b3a";
+            bodycanvas.fillStyle = '#f78b3a';
             bodycanvas.fill();
             bodycanvas.lineWidth = 5;
 
 
             /* Chest Hair */
-            var chest = document.getElementById("chest");
-            var chestcanvas = chest.getContext("2d");
+            var chest = document.getElementById('chest');
+            var chestcanvas = chest.getContext('2d');
 
             var centerX = -105;
             var centerY = 65;
@@ -518,43 +763,43 @@
             chestcanvas.beginPath();
             chestcanvas.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
 
-            chestcanvas.fillStyle = "#fff";
+            chestcanvas.fillStyle = '#fff';
             chestcanvas.fill();
             chestcanvas.lineWidth = 5;
 
 
             /* Little T-Rex Arms - Lefty Loosey */
-            var leftarm = document.getElementById("leftarm");
-            var leftarmcanvas = leftarm.getContext("2d");
+            var leftarm = document.getElementById('leftarm');
+            var leftarmcanvas = leftarm.getContext('2d');
 
             leftarmcanvas.beginPath();
             leftarmcanvas.moveTo(-10,300);
             leftarmcanvas.lineTo(75,325);
             leftarmcanvas.lineWidth = 50;
-            leftarmcanvas.strokeStyle = "#f78b3a";
+            leftarmcanvas.strokeStyle = '#f78b3a';
             leftarmcanvas.stroke();
 
 
             /* Little T-Rex Arms - Righty Tighty */
-            var rightarm = document.getElementById("rightarm");
-            var rightarmcanvas = rightarm.getContext("2d");
+            var rightarm = document.getElementById('rightarm');
+            var rightarmcanvas = rightarm.getContext('2d');
 
             rightarmcanvas.beginPath();
             rightarmcanvas.moveTo(285,325);
             rightarmcanvas.lineTo(370,300);
             rightarmcanvas.lineWidth = 50;
-            rightarmcanvas.strokeStyle = "#f78b3a";
+            rightarmcanvas.strokeStyle = '#f78b3a';
             rightarmcanvas.stroke();
 
 
             /* Q&A */
-            var ask = document.getElementById("ask");
+            var ask = document.getElementById('ask');
 
             if (ask && ask.addEventListener) {
-                ask.addEventListener("click", answerme, false);
+                ask.addEventListener('click', answerme, false);
             }
             else if (ask && ask.attachEvent) {
-                ask.attachEvent("onclick", answerme);
+                ask.attachEvent('onclick', answerme);
             }
 
             var earlBallAnswers = [
@@ -566,7 +811,6 @@
                 "I don't know, but HTML9 rocks!",
                 "Only if Nels predicted it.",
                 "Better not tell you now.",
-                "I don't know. What do you think?",
                 "Don't count on it.",
                 "Careful, that shit ain't free."
             ];
@@ -583,32 +827,65 @@
             }
 
 
-            /* Sup, iPhone */
-
+            /* Sup, iPhones and iP*ds */
             function updateOrientation() {
                 switch(window.orientation) {
                     case 0:
                         // normal
-                        shockmouth.className = 'hiddendragon';
+                        shockmouth.className = ''; // i'll just wipe it for now.
                         break;
                     case -90:
                         // right
-                        shockmouth.className = '';
+                        shockmouth.className += ' panic';
                         break;
                     case 90:
                         // left
-                        shockmouth.className = '';
+                        shockmouth.className += ' panic';
                         break;
                 }
             }
 
+
+            /* URL bar, begone! */
+            if (navigator.appVersion.indexOf('iPhone OS') > 0) { /* no point in including iPad here. URL bar behaves differently. */
+                window.addEventListener('load', function() {
+                    setTimeout(function() {
+                        window.scrollTo(0, 1);
+                    }, 0);
+                });
+            }
+
+
+            /* Touchy Feely */
+            var invisiblehand = document.getElementById('invisiblehand');
+            var container = document.getElementById('containyourself');
+            container.addEventListener('touchstart', cantTouchThis, false);
+            function cantTouchThis(event) {
+                //number of touches
+                touchesCount = event.touches.length
+                if (touchesCount === 4) {
+                    shockmouth.className += ' panic';
+                    leftarm.className += ' panic';
+                    rightarm.className += ' panic';
+                    invisiblehand.className += ' panic';
+                }
+                else {
+                    shockmouth.className = '';
+                    leftarm.className = ''; // i'll just wipe it for now.
+                    rightarm.className = '';
+                    invisiblehand.className = '';
+                }
+            }
         </script>
+
+        <!--To do: find a suitable license-drama-free dingbat web font with "grab" hand character for @font-face spec. I'll just use Zapfino for now, but non iOS/OS X isn't going to like that.-->
 
         <footer id="sosumi">
             2011. <a href="http://www.monstercyb.org/gordon/lab">Monstercyb.org</a>. A part of the <a href="http://www.ocf.berkeley.edu/~gordeon">GordeonBleu</a> network.
         </footer>
 
         <!--Created: 2011 July 7-->
+        <!--Revised: 2011 July 11-->
         <!--Recreating and animating our mascot, Earl the Cat, for our hackathon.-->
 
         <script type="text/javascript">

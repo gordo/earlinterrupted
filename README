@@ -1,1 +1,3 @@
 2011 July 7. Recreating our company mascot Earl the Cat with canvas, and animating using CSS keyframes. Makes shocked face when orientation changes upon device rotation. Made for our summer 2011 hackathon.
+
+2011 July 11. Upon being "picked up" (detection of four fingers touching), makes shocked face, flails arms using CSS transforms and keyframes, and displays the grabbing hand using a dingbat font from the Zapfino font family (hand shadow using text-shadow, letter transformed to point down). Other optimizations for iPhones and iP*ds. Zapfino does not come bundled outside iOS and OS X, so planning to utilize @font-face once I find a suitable license-friendly dingbat font.
